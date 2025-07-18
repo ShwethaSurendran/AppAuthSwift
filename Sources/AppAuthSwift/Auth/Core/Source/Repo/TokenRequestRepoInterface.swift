@@ -1,11 +1,11 @@
 //
 //  TokenRequestRepo.swift
-//  AppAuthSwift
+//  AppAuthDemo
 //
 //
 
 import Foundation
 
 protocol TokenRequestRepoInterface {
-    func getToken(req:AuthRequest) async throws -> Token
+    func getToken(request:AuthRequest) async throws -> Token
 }

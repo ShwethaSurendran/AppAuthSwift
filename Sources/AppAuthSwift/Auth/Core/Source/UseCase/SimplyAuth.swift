@@ -1,28 +1,24 @@
 //
 //  SimplyAuth.swift
-//  AppAuthSwift
+//  AppAuthDemo
 //
 //
 
 import Foundation
 
-final class SimplyAuth {
-    static var sharedInstance = SimplyAuth()
+final class AppAuthSwift {
+    static var sharedInstance = AppAuthSwift()
     private var tokenHandler:TokenHandler?
 
     // get access token from api
-    func getAuthToken(req:AuthRequest, token:Token? = nil) async throws -> Token? {
+    func getAuthToken(request:AuthRequest, token:Token? = nil) async throws -> Token? {
         if tokenHandler == nil {
-            tokenHandler = TokenHandler(req: req, 
+            tokenHandler = TokenHandler(req: request,
                                         token: token,
                                         repo: TokenRequestRepo())
-            if token != nil {
-                return try await tokenHandler?.getToken()
-            } else {
-                return try await tokenHandler?.requestForToken()
-            }
+            return try await tokenHandler?.getToken()
         } else {
-            return try await tokenHandler?.getToken(req: req)
+            return try await tokenHandler?.getToken(req: request)
         }
     }
     

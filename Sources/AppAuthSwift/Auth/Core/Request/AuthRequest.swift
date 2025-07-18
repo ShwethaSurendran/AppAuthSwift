@@ -1,13 +1,13 @@
 //
 //  AuthRequest.swift
-//  AppAuthSwift
+//  AppAuthDemo
 //
 //
 
 import Foundation
 
 public struct AuthRequest {
-    let url: String
+    let url: URL
     var grantType: GrantType = .authorization
     var code: String = ""
     let clientId: String

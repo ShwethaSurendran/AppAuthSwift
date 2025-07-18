@@ -1,6 +1,6 @@
 //
 //  LoginURL.swift
-//  AppAuthSwift
+//  AppAuthDemo
 //
 //
 
@@ -8,20 +8,21 @@ import Foundation
 
 struct LoginURL {
     
-    let url:String
+    let baseURL:String
     let scope:[String]
     let responseType:String
     let redirectURI:String
     let clientId:String
     
-    var loginURL:String {
-        
-        let url =  "\(url)" +
-        "scope=\(scope.joined(separator: "+"))&" +
-        "response_type=\(responseType)&" +
-        "redirect_uri=\(redirectURI)&" +
-        "client_id=\(clientId)"
-        return url
-        
+    var loginURL: URL? {
+        var components = URLComponents(string: baseURL)
+        components?.queryItems = [
+            URLQueryItem(name: "scope", value: scope.joined(separator: "+")),
+            URLQueryItem(name: "response_type", value: responseType),
+            URLQueryItem(name: "redirect_uri", value: redirectURI),
+            URLQueryItem(name: "client_id", value: clientId)
+        ]
+        return components?.url
     }
+    
 }

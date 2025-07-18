@@ -1,6 +1,6 @@
 //
 //  Token.swift
-//  AppAuthSwift
+//  AppAuthDemo
 //
 //
 
@@ -12,7 +12,11 @@ struct Token: Decodable {
     let scope: String
     let refreshToken: String
     let tokenType: String
-    let expiresAt: Date?
+    
+    private let expiresIn: Int
+    var expiresAt: Date? {
+        Date().addingTimeInterval(TimeInterval(expiresIn))
+    }
     
     private enum CodingKeys: String, CodingKey {
         case accessToken = "access_token"
@@ -21,16 +25,5 @@ struct Token: Decodable {
         case refreshToken = "refresh_token"
         case tokenType = "token_type"
         case expiresIn = "expires_in"
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        accessToken = try container.decode(String.self, forKey: .accessToken)
-        idToken = try container.decode(String.self, forKey: .idToken)
-        scope = try container.decode(String.self, forKey: .scope)
-        refreshToken = try container.decode(String.self, forKey: .refreshToken)
-        tokenType = try container.decode(String.self, forKey: .tokenType)
-        let expiresIn = try container.decode(Int.self, forKey: .expiresIn)
-        expiresAt = Date().addingTimeInterval(TimeInterval(expiresIn))
     }
 }
