@@ -7,7 +7,7 @@
 import Foundation
 
 @available(iOS 15.0, *)
-actor SimplyAuth {
+public actor SimplyAuth {
     static var sharedInstance = SimplyAuth()
     private var tokenHandler:TokenHandler?
 

@@ -6,7 +6,7 @@
 
 import Foundation
 
-struct LoginURL {
+public struct LoginURL {
     
     let baseURL:String
     let scope:[String]

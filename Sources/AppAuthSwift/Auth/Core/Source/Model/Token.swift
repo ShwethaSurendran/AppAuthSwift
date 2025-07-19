@@ -6,7 +6,7 @@
 
 import Foundation
 
-struct Token: Decodable {
+public struct Token: Decodable, Sendable {
     let accessToken: String
     let idToken: String
     let scope: String
