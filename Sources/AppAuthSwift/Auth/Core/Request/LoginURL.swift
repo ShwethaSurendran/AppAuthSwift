@@ -22,7 +22,7 @@ public struct LoginURL {
         self.clientId = clientId
     }
     
-    var loginURL: URL? {
+    public var loginURL: URL? {
         var components = URLComponents(string: baseURL)
         components?.queryItems = [
             URLQueryItem(name: "scope", value: scope.joined(separator: "+")),
