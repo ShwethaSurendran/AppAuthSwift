@@ -10,6 +10,10 @@ import SwiftUI
 public struct AuthLoginView: View {
     public let url: URL
     
+    public init(url: URL) {
+        self.url = url
+    }
+    
     public var body: some View {
         SafariWebView(url: url)
             .edgesIgnoringSafeArea(.all)
