@@ -12,7 +12,7 @@ public actor SimplyAuth {
     private var tokenHandler:TokenHandler?
 
     // get access token from api
-    func getAuthToken(request:AuthRequest, token:Token? = nil) async throws -> Token? {
+    public func getAuthToken(request:AuthRequest, token:Token? = nil) async throws -> Token? {
         if tokenHandler == nil {
             tokenHandler = TokenHandler(req: request,
                                         token: token,
@@ -24,7 +24,7 @@ public actor SimplyAuth {
     }
     
     // Return token data
-    func getToken() async throws -> Token?  {
+    public func getToken() async throws -> Token?  {
         return try await tokenHandler?.getToken()
     }
     

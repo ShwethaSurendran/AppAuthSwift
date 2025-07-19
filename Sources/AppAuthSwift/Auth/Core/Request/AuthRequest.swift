@@ -15,7 +15,7 @@ public struct AuthRequest: Sendable {
     var redirectUri: String = ""
     var refreshToken: String = ""
     
-    public init(url: URL, grantType: GrantType, code: String = "", clientId: String, clientSecret: String = "", redirectUri: String = "", refreshToken: String) {
+    public init(url: URL, grantType: GrantType = .authorization, code: String = "", clientId: String, clientSecret: String = "", redirectUri: String = "", refreshToken: String = "") {
         self.url = url
         self.grantType = grantType
         self.code = code
