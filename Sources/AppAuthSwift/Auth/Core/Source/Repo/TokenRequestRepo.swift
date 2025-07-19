@@ -6,7 +6,8 @@
 
 import Foundation
 
-struct TokenRequestRepo: TokenRequestRepoInterface {
+@available(iOS 15.0, *)
+struct TokenRequestRepo: TokenRequestRepoInterface, Sendable {
     
     private struct TokenReqParams:Encodable {
         let grant_type: String

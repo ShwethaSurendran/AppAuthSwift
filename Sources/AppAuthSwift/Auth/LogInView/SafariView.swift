@@ -7,6 +7,7 @@
 import SwiftUI
 import SafariServices
 
+@available(iOS 15.0, *)
 struct SafariWebView: UIViewControllerRepresentable {
     let url: URL
     

@@ -6,8 +6,9 @@
 
 import Foundation
 
-final class AppAuthSwift {
-    static var sharedInstance = AppAuthSwift()
+@available(iOS 15.0, *)
+actor SimplyAuth {
+    static var sharedInstance = SimplyAuth()
     private var tokenHandler:TokenHandler?
 
     // get access token from api

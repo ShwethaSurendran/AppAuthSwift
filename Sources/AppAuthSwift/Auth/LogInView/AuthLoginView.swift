@@ -6,6 +6,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct AuthLoginView: View {
     let url: URL
     
@@ -15,6 +16,7 @@ struct AuthLoginView: View {
     }
 }
 
+@available(iOS 15.0, *)
 #Preview {
     AuthLoginView(url: URL(string: "http://www.google.com")!)
 }

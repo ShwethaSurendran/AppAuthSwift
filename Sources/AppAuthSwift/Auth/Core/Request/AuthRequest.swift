@@ -6,7 +6,7 @@
 
 import Foundation
 
-public struct AuthRequest {
+public struct AuthRequest: Sendable {
     let url: URL
     var grantType: GrantType = .authorization
     var code: String = ""
@@ -16,7 +16,7 @@ public struct AuthRequest {
     var refreshToken: String = ""
 }
 
-public enum GrantType: String {
+public enum GrantType: String, Sendable  {
     case authorization = "authorization_code"
     case refreshToken = "refresh_token"
 }

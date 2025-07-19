@@ -6,6 +6,7 @@
 
 import Foundation
 
+@available(iOS 13.0, *)
 actor TokenHandler {
     
     // MARK: variables
@@ -38,7 +39,7 @@ actor TokenHandler {
         //if yes-> If expiration time is less than one minute call refresh token.
         //no-> return token
         
-        if let token {
+        if token != nil {
             if let tokenTask {
                 return try await tokenTask.value
             }
@@ -60,7 +61,7 @@ actor TokenHandler {
             return try await loginTask.value
         }
         
-        let task = Task {
+        let task = Task { [repo, request] in
             defer {
                 loginTask = nil
             }
@@ -102,7 +103,7 @@ actor TokenHandler {
                                grantType: request.grantType,
                                clientId: request.clientId,
                                refreshToken: request.refreshToken)
-        let task = Task {
+        let task = Task { [repo, request] in
             defer {
                 tokenTask = nil
             }
