@@ -7,10 +7,10 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-struct AuthLoginView: View {
-    let url: URL
+public struct AuthLoginView: View {
+    public let url: URL
     
-    var body: some View {
+    public var body: some View {
         SafariWebView(url: url)
             .edgesIgnoringSafeArea(.all)
     }
