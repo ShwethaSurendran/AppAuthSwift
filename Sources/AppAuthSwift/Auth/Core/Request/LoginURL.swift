@@ -14,6 +14,14 @@ public struct LoginURL {
     let redirectURI:String
     let clientId:String
     
+    public init(baseURL: String, scope: [String], responseType: String, redirectURI: String, clientId: String) {
+        self.baseURL = baseURL
+        self.scope = scope
+        self.responseType = responseType
+        self.redirectURI = redirectURI
+        self.clientId = clientId
+    }
+    
     var loginURL: URL? {
         var components = URLComponents(string: baseURL)
         components?.queryItems = [
